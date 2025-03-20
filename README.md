@@ -1,4 +1,7 @@
 ## EX. NO: 1(A) : IMPLEMENTATION OF CAESAR CIPHER
+## DATE: 20-03-2025
+## NAME: AYUSH S
+# REGISTER NO: 212224040041
  
 
 ## AIM:
@@ -28,7 +31,32 @@ becomes C. To change a message back, each letter is replaced by the one three be
 
 
 PROGRAM :-
+```
+def caesar_cipher(text, shift, mode='encrypt'):
+    result = ""
+    
+    if mode == 'decrypt':
+        shift = -shift  
+    
+    for char in text:
+        if char.isalpha():
+            shift_base = ord('A') if char.isupper() else ord('a')
+            result += chr((ord(char) - shift_base + shift) % 26 + shift_base)
+        else:
+            result += char  
+    
+    return result
 
 
+text = input("Enter your text: ")
+shift = int(input("Enter shift value: "))
+mode = input("Enter mode (encrypt/decrypt): ").strip().lower()
+
+output = caesar_cipher(text, shift, mode)
+print(f"Output: {output}")
+```
 
 OUTPUT :-
+
+
+<img width="767" alt="Screenshot 2025-03-20 085956" src="https://github.com/user-attachments/assets/89e5a3d1-83b3-48f5-b9bb-cf034c0b7b68" />
